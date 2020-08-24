@@ -21,8 +21,16 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetUpMoveBoundaries();
+        StartCoroutine(PrintAndWait()); // call the coroutine
     }
-    
+
+    IEnumerator PrintAndWait()
+    {
+        Debug.Log("First print...wait for three seconds...");
+        yield return new WaitForSeconds(3); // wait for 3 seconds before moving on to the next part of coroutine (other stuff outside the coroutine happens as normal)
+        Debug.Log("Second print...three seconds just went by...");
+    }
+
     // Update is called once per frame
     void Update()
     {
