@@ -5,20 +5,20 @@ using UnityEngine;
 public class EnemyPathing : MonoBehaviour
 {
     // Configuration parameters
-    [SerializeField] List<Transform> waypoints;
+    [SerializeField] WaveConfig waveConfig;
+    List<Transform> waypoints;
     [SerializeField] float moveSpeed = 2f;
     int waypointIndex = 0;
 
     void Start()
     {
+        waypoints = waveConfig.GetWaypoints();
         transform.position = waypoints[waypointIndex].transform.position; // position of enemy is the current waypointIndex in the waypoints list - i.e. go to zero
     }
-
     private void Update()
     {
         Move();
     }
-
     private void Move()
     {
         if (waypointIndex <= waypoints.Count - 1)
