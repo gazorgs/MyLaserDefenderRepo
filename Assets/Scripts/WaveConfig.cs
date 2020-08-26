@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy Wave Config")]  // add entry to rclick Create New menu in Unity Editor
 public class WaveConfig : ScriptableObject
 {
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] GameObject pathPrefab;
+    [SerializeField] GameObject enemyPrefab = default;
+    [SerializeField] GameObject pathPrefab = default;
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
     [SerializeField] int numberOfEnemies = 5;
