@@ -6,9 +6,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Configuration parameters
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10f; // change this in the Inspector to get the Player move speed to what feels best
     [SerializeField] float padding = 0.5f;
     //[SerializeField] float yPadding = 1f;  //maybe implement later to stop Player moving too far up the screen
+    [SerializeField] int health = 200;
+
+    [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = default;
     [SerializeField] float projectileSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
@@ -31,6 +35,21 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) // you can change the default 'collision' to anything, in this case 'other' to denote the 'other' thing bumping into Player
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>(); //store value of DamageDealer component of thing that has bumped into Player
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage(); //decrease health by calling GetDamage() method from DamageDealer.cs component on other gameObject
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Fire()
