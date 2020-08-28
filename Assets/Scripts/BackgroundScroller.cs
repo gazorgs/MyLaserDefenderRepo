@@ -11,13 +11,13 @@ public class BackgroundScroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myMaterial = GetComponent<Renderer>().material;
+        myMaterial = GetComponent<Renderer>().material; 
         offset = new Vector2(0, backgroundScrollSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        myMaterial.mainTextureOffset += offset * Time.deltaTime;
+        myMaterial.mainTextureOffset += offset * Time.deltaTime; //shader material from Background
     }
 }
