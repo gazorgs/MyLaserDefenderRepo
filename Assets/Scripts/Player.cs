@@ -40,12 +40,14 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) // you can change the default 'collision' to anything, in this case 'other' to denote the 'other' thing bumping into Player
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>(); //store value of DamageDealer component of thing that has bumped into Player
+        if (!damageDealer) { return; }
         ProcessHit(damageDealer);
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
         health -= damageDealer.GetDamage(); //decrease health by calling GetDamage() method from DamageDealer.cs component on other gameObject
+        damageDealer.Hit();
         if (health <= 0)
         {
             Destroy(gameObject);
