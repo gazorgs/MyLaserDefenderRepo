@@ -116,6 +116,8 @@ MonoBehaviour:
     type: 3}
   enemyProjectileSpeed: 10
   padding: 0.5
+  enemyExplosionPrefab: {fileID: 237506419725973773, guid: acae514a7ff6e3c4d81d71f782f5bfc6,
+    type: 3}
 --- !u!58 &2332457339329603887
 CircleCollider2D:
   m_ObjectHideFlags: 0
