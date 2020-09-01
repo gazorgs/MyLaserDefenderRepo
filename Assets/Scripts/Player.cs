@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     //[SerializeField] float yPadding = 1f;  //maybe implement later to stop Player moving too far up the screen
     [SerializeField] int health = 200;
+    [SerializeField] AudioClip playerExplosionSound;
+    [SerializeField] [Range(0, 1)] float playerExplosionSoundVolume = 0.75f; //using Range caps the slider in the Inspector for this variable
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.25f;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = default;
@@ -50,8 +54,14 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        AudioSource.PlayClipAtPoint(playerExplosionSound, Camera.main.transform.position, playerExplosionSoundVolume);
+        Destroy(gameObject);
     }
 
     private void Fire()
@@ -74,6 +84,7 @@ public class Player : MonoBehaviour
                     transform.position + new Vector3(0, padding, 0), //offset the laser from the centre pivot of the player ship slightly
                     Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }

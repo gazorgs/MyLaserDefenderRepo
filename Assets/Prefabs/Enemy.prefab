@@ -118,6 +118,11 @@ MonoBehaviour:
   padding: 0.5
   enemyExplosionPrefab: {fileID: 237506419725973773, guid: acae514a7ff6e3c4d81d71f782f5bfc6,
     type: 3}
+  durationOfExplosion: 1
+  enemyExplosionSound: {fileID: 8300000, guid: 1d2bdbe6497c1324ea060a8ab9bca81d, type: 3}
+  enemyExplosionSoundVolume: 0.5
+  shootSound: {fileID: 8300000, guid: 5e1b8cd53c61fc248aceb086c92c8949, type: 3}
+  shootSoundVolume: 0.25
 --- !u!58 &2332457339329603887
 CircleCollider2D:
   m_ObjectHideFlags: 0
