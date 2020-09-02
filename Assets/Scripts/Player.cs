@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     //[SerializeField] float yPadding = 1f;  //maybe implement later to stop Player moving too far up the screen
     [SerializeField] int health = 200;
-    [SerializeField] AudioClip playerExplosionSound;
+
+    [Header("Audio")]
+    [SerializeField] AudioClip playerExplosionSound = default;
     [SerializeField] [Range(0, 1)] float playerExplosionSoundVolume = 0.75f; //using Range caps the slider in the Inspector for this variable
-    [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioClip shootSound = default;
     [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.25f;
 
     [Header("Projectile")]

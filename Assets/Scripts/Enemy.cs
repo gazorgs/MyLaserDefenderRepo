@@ -13,9 +13,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] GameObject enemyExplosionPrefab = default;
     [SerializeField] float durationOfExplosion = 1f;
+
+    [Header("Audio")]
     [SerializeField] AudioClip enemyExplosionSound = default;
     [SerializeField] [Range(0, 1)] float enemyExplosionSoundVolume = 0.75f; //using Range caps the slider in the Inspector for this variable
-    [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioClip shootSound = default;
     [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.5f;
 
     [Header("Projectile")]
