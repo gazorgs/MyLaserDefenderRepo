@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    // Configuration parameters
+    [SerializeField] float delayInSeconds = 2f;
     public void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -18,6 +20,12 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadGameOver()
     {
+        StartCoroutine(WaitAndLoad()); 
+    }
+
+    IEnumerator WaitAndLoad()
+    {
+        yield return new WaitForSeconds(delayInSeconds);
         SceneManager.LoadScene("Game Over");
     }
 

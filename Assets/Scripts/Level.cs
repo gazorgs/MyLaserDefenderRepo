@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    // currently not using this class in Laser Defender
+
     // Parameters
     [SerializeField] int breakableBlocks; // Serialize for debugging purposes
 

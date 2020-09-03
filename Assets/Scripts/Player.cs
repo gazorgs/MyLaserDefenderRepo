@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<SceneLoader>().LoadGameOver(); // call the LoadGameOver() method from SceneLoader class
         AudioSource.PlayClipAtPoint(playerExplosionSound, Camera.main.transform.position, playerExplosionSoundVolume);
         Destroy(gameObject);
     }
