@@ -30,6 +30,7 @@ public class GameSession : MonoBehaviour
     {
         score += scoreValue;
     }
+
     public void ResetGame()
     {
         Destroy(gameObject);
