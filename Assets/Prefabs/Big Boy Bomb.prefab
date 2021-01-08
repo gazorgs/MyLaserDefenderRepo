@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2639055671791296006}
   - component: {fileID: 4127752733457279420}
   - component: {fileID: -6021327098958901883}
+  - component: {fileID: 1532084758070162050}
   m_Layer: 11
   m_Name: Big Boy Bomb
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2120176067
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5865db03815526046ad63c7d7c9809a7, type: 3}
   m_Color: {r: 1, g: 0.3277383, b: 0.0047169924, a: 1}
@@ -134,3 +135,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.185
+--- !u!114 &1532084758070162050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321236923518393858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfd237c0cd97c44f90fb60811e2b1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedOfSpin: 360
