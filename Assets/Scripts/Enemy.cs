@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     // configuration parameters
     [Header("Enemy")]
     [SerializeField] float health = 100;
+    [SerializeField] int scoreValue = 150;
+
+    [Header("Shooting")]
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
@@ -76,6 +79,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         AudioSource.PlayClipAtPoint(enemyExplosionSound, Camera.main.transform.position, enemyExplosionSoundVolume); 
         Destroy(gameObject);
         GameObject enemyExplosion = Instantiate(
